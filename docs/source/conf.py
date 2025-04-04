@@ -13,7 +13,9 @@ author = 'Witty Wizard'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = [
+    "sphinx_copybutton",
+]
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -43,5 +45,7 @@ html_context = {
     "github_user": "Robotics-PEC",
     "github_repo": "Getting-Started-With-Robotics",
     "github_version": "main",
-    "conf_py_path": "/docs/",  # Adjust based on repo structure
+    "conf_py_path": "/docs/source/",
 }
+
+latex_logo = "_static/logo.png"
