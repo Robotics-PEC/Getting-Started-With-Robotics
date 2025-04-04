@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Linux Commands &mdash; Robotics 101  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=010c87b6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Compiling and Executing C Code" href="programmingc.html" />
+    <link rel="prev" title="Docker" href="docker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Robotics 101
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="versioncontrol.html">Version Control with Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#what-is-git">What is Git?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#installing-git">Installing Git</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="versioncontrol.html#for-windows">For Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="versioncontrol.html#for-macos">For MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#git-commands-summary">Git commands summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#why-docker">Why Docker? 🐳</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#installing-docker">Installing Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#macos">MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#building-the-docker-image">Building the Docker Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#linking-local-volume-to-docker-using-docker-compose">Linking Local Volume to Docker using Docker Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#why-do-we-need-to-link-volumes">Why Do We Need to Link Volumes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#what-is-docker-compose">What is Docker Compose? 🐳</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#setting-up-docker-compose">Setting Up Docker Compose</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#create-a-docker-compose-yml-file">1. Create a <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#run-docker-compose">2. Run Docker Compose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#accessing-the-container">3. Accessing the Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#creating-a-file-inside-the-container">4. Creating a File inside the Container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Linux Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#navigating-the-filesystem">Navigating the Filesystem 🗂️</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pwd-print-working-directory">1. <cite>pwd</cite> (Print Working Directory)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ls-list-directory-contents">2. <cite>ls</cite> (List Directory Contents)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cd-change-directory">3. <cite>cd</cite> (Change Directory)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#file-operations">File Operations 📁</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#touch-create-a-file">1. <cite>touch</cite> (Create a File)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mkdir-create-a-directory">2. <cite>mkdir</cite> (Create a Directory)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cp-copy-files">3. <cite>cp</cite> (Copy Files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mv-move-rename-files">4. <cite>mv</cite> (Move/Rename Files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rm-remove-files-directories">5. <cite>rm</cite> (Remove Files/Directories)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html">Compiling and Executing C Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programmingc.html#practice-question">Practice Question</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="programmingc.html#d-robot-simulation">2D Robot Simulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#how-to-write-technical-documentation">How to write technical documentation.</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Robotics 101</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Basic Linux Commands</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Robotics-PEC/Getting-Started-With-Robotics/blob/main/docs/source/linux.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-linux-commands">
+<h1>Basic Linux Commands<a class="headerlink" href="#basic-linux-commands" title="Link to this heading"></a></h1>
+<section id="navigating-the-filesystem">
+<h2>Navigating the Filesystem 🗂️<a class="headerlink" href="#navigating-the-filesystem" title="Link to this heading"></a></h2>
+<p>Understanding how to navigate the filesystem is fundamental when working with Linux.</p>
+<section id="pwd-print-working-directory">
+<h3>1. <cite>pwd</cite> (Print Working Directory)<a class="headerlink" href="#pwd-print-working-directory" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command shows the full path of the current directory you are in.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pwd</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong> If you are in the <code class="docutils literal notranslate"><span class="pre">/home/user/documents</span></code> directory, running <code class="docutils literal notranslate"><span class="pre">pwd</span></code> will output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/home/user/documents
+</pre></div>
+</div>
+</section>
+<section id="ls-list-directory-contents">
+<h3>2. <cite>ls</cite> (List Directory Contents)<a class="headerlink" href="#ls-list-directory-contents" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ls</span></code> command lists all files and directories in the current directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<p><strong>Example:</strong> To list files with details (like file size and permissions):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-l
+</pre></div>
+</div>
+</section>
+<section id="cd-change-directory">
+<h3>3. <cite>cd</cite> (Change Directory)<a class="headerlink" href="#cd-change-directory" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">cd</span></code> command changes the current directory to a different one.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/directory
+</pre></div>
+</div>
+<p><strong>Example:</strong> To move to the home directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
+</pre></div>
+</div>
+</section>
+</section>
+<section id="file-operations">
+<h2>File Operations 📁<a class="headerlink" href="#file-operations" title="Link to this heading"></a></h2>
+<p>These commands help you create, move, and manage files and directories.</p>
+<section id="touch-create-a-file">
+<h3>1. <cite>touch</cite> (Create a File)<a class="headerlink" href="#touch-create-a-file" title="Link to this heading"></a></h3>
+<p>The <cite>touch</cite> command creates an empty file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>filename
+</pre></div>
+</div>
+<p><strong>Example:</strong> To create a file named <cite>example.txt</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>example.txt
+</pre></div>
+</div>
+</section>
+<section id="mkdir-create-a-directory">
+<h3>2. <cite>mkdir</cite> (Create a Directory)<a class="headerlink" href="#mkdir-create-a-directory" title="Link to this heading"></a></h3>
+<p>The <cite>mkdir</cite> command creates a new directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>directory_name
+</pre></div>
+</div>
+<p><strong>Example:</strong> To create a directory named <cite>projects</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>projects
+</pre></div>
+</div>
+</section>
+<section id="cp-copy-files">
+<h3>3. <cite>cp</cite> (Copy Files)<a class="headerlink" href="#cp-copy-files" title="Link to this heading"></a></h3>
+<p>The <cite>cp</cite> command copies files or directories from one location to another.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>source_file<span class="w"> </span>destination
+</pre></div>
+</div>
+<p><strong>Example:</strong> To copy <cite>file.txt</cite> to another directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>file.txt<span class="w"> </span>/home/user/documents
+</pre></div>
+</div>
+</section>
+<section id="mv-move-rename-files">
+<h3>4. <cite>mv</cite> (Move/Rename Files)<a class="headerlink" href="#mv-move-rename-files" title="Link to this heading"></a></h3>
+<p>The <cite>mv</cite> command moves or renames files or directories.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>old_name<span class="w"> </span>new_name
+</pre></div>
+</div>
+<p><strong>Example:</strong> To move <cite>file.txt</cite> to another directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>file.txt<span class="w"> </span>/home/user/documents
+</pre></div>
+</div>
+<p>Or to rename <cite>file.txt</cite> to <cite>newfile.txt</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv<span class="w"> </span>file.txt<span class="w"> </span>newfile.txt
+</pre></div>
+</div>
+</section>
+<section id="rm-remove-files-directories">
+<h3>5. <cite>rm</cite> (Remove Files/Directories)<a class="headerlink" href="#rm-remove-files-directories" title="Link to this heading"></a></h3>
+<p>The <cite>rm</cite> command removes files or directories.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>filename
+</pre></div>
+</div>
+<p><strong>Example:</strong> To remove a file named <cite>file.txt</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>file.txt
+</pre></div>
+</div>
+<p>To remove a directory and its contents:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-r<span class="w"> </span>directory_name
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="docker.html" class="btn btn-neutral float-left" title="Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="programmingc.html" class="btn btn-neutral float-right" title="Compiling and Executing C Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Witty Wizard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

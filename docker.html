@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docker &mdash; Robotics 101  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=010c87b6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Linux Commands" href="linux.html" />
+    <link rel="prev" title="Version Control with Git" href="versioncontrol.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Robotics 101
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="versioncontrol.html">Version Control with Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#what-is-git">What is Git?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#installing-git">Installing Git</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="versioncontrol.html#for-windows">For Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="versioncontrol.html#for-macos">For MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#git-commands-summary">Git commands summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#why-docker">Why Docker? 🐳</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-docker">Installing Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#macos">MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-docker-image">Building the Docker Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linking-local-volume-to-docker-using-docker-compose">Linking Local Volume to Docker using Docker Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-do-we-need-to-link-volumes">Why Do We Need to Link Volumes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-docker-compose">What is Docker Compose? 🐳</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-docker-compose">Setting Up Docker Compose</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-docker-compose-yml-file">1. Create a <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-docker-compose">2. Run Docker Compose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-the-container">3. Accessing the Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-file-inside-the-container">4. Creating a File inside the Container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Basic Linux Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#navigating-the-filesystem">Navigating the Filesystem 🗂️</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#pwd-print-working-directory">1. <cite>pwd</cite> (Print Working Directory)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#ls-list-directory-contents">2. <cite>ls</cite> (List Directory Contents)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#cd-change-directory">3. <cite>cd</cite> (Change Directory)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#file-operations">File Operations 📁</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#touch-create-a-file">1. <cite>touch</cite> (Create a File)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#mkdir-create-a-directory">2. <cite>mkdir</cite> (Create a Directory)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#cp-copy-files">3. <cite>cp</cite> (Copy Files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#mv-move-rename-files">4. <cite>mv</cite> (Move/Rename Files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#rm-remove-files-directories">5. <cite>rm</cite> (Remove Files/Directories)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html">Compiling and Executing C Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programmingc.html#practice-question">Practice Question</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="programmingc.html#d-robot-simulation">2D Robot Simulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#how-to-write-technical-documentation">How to write technical documentation.</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Robotics 101</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Docker</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Robotics-PEC/Getting-Started-With-Robotics/blob/main/docs/source/docker.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="Link to this heading"></a></h1>
+<section id="why-docker">
+<h2>Why Docker? 🐳<a class="headerlink" href="#why-docker" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Consistency:</strong> Docker ensures that the software runs the same way, regardless of where it’s deployed.</p></li>
+<li><p><strong>Isolation:</strong> Each Docker container is isolated, preventing conflicts between different software environments.</p></li>
+<li><p><strong>Portability:</strong> Docker containers can be easily shared and run on any system with Docker installed, making it ideal for collaboration and deployment.</p></li>
+</ul>
+</section>
+<section id="installing-docker">
+<h2>Installing Docker<a class="headerlink" href="#installing-docker" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Ensure that Virtualization is enabled in BIOS for your system.</p>
+</div>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Ensure that WSL is enabled in your Windows.</p>
+</div>
+<ol class="arabic">
+<li><p><strong>Download Docker Desktop:</strong> Go to the <a class="reference external" href="https://docs.docker.com/desktop/install/windows-install/">Docker Desktop for Windows</a> download page.</p></li>
+<li><p><strong>Install Docker Desktop:</strong> Run the installer and follow the on-screen instructions.</p></li>
+<li><p><strong>Start Docker Desktop:</strong> After installation, Docker will start automatically. You can access it from the Start menu.</p></li>
+<li><p><strong>Verify Installation:</strong> Open PowerShell and run the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><strong>Update Your System:</strong> Open your terminal and run the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install Docker:</strong> Go to the <a class="reference external" href="https://docs.docker.com/desktop/install/linux-install/">Docker Desktop for Linux</a> and follow the instructions.</p></li>
+<li><p><strong>Verify Installation:</strong> Open your terminal and run the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="macos">
+<h3>MacOS<a class="headerlink" href="#macos" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><strong>Download Docker Desktop:</strong> Visit the <a class="reference external" href="https://docs.docker.com/desktop/install/mac-install/">Docker Desktop for Mac</a> download page.</p></li>
+<li><p><strong>Install Docker Desktop:</strong> Open the downloaded .dmg file and drag the Docker icon to your Applications folder.</p></li>
+<li><p><strong>Start Docker:</strong> Launch Docker from your Applications folder. Docker will start running in the background.</p></li>
+<li><p><strong>Verify Installation:</strong> Open your terminal and run the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="cloning-the-repository">
+<h2>Cloning the Repository<a class="headerlink" href="#cloning-the-repository" title="Link to this heading"></a></h2>
+<p>Clone the repository on your local machine using the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Robotics-Society-PEC/Getting-Started-With-Robotics.git
+</pre></div>
+</div>
+</section>
+<section id="building-the-docker-image">
+<h2>Building the Docker Image<a class="headerlink" href="#building-the-docker-image" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Ensure that you run this command from within the repository.</p>
+</div>
+<p>This repo provides a Docker image with Ubuntu installed. To build the image, run the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>&lt;name_of_image&gt;<span class="w"> </span>.
+</pre></div>
+</div>
+<p>After the image is done building, you can enter the Linux environment using the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>&lt;name_of_image&gt;
+</pre></div>
+</div>
+</section>
+<section id="linking-local-volume-to-docker-using-docker-compose">
+<h2>Linking Local Volume to Docker using Docker Compose<a class="headerlink" href="#linking-local-volume-to-docker-using-docker-compose" title="Link to this heading"></a></h2>
+<section id="why-do-we-need-to-link-volumes">
+<h3>Why Do We Need to Link Volumes?<a class="headerlink" href="#why-do-we-need-to-link-volumes" title="Link to this heading"></a></h3>
+<p>When working inside a Docker container, you might create or modify files within the container’s filesystem. However, these changes are isolated from your local machine, which means:</p>
+<ul class="simple">
+<li><p><strong>Files created or modified inside the container</strong> will not automatically appear in your local filesystem.</p></li>
+<li><p><strong>Git won’t be able to track changes</strong> made inside the container since they aren’t visible in your local directory.</p></li>
+</ul>
+<p>To solve this, we can link a directory inside the Docker container to a directory on your local machine. This way, any changes made in the container will be reflected on your local machine, and vice versa.</p>
+</section>
+<section id="what-is-docker-compose">
+<h3>What is Docker Compose? 🐳<a class="headerlink" href="#what-is-docker-compose" title="Link to this heading"></a></h3>
+<p>Docker Compose is a tool that allows you to define and manage multi-container Docker applications. With Docker Compose, you can define all your services, networks, and volumes in a single <code class="docutils literal notranslate"><span class="pre">YAML</span></code> file. This simplifies the process of managing complex applications by allowing you to spin up an entire environment with a single command.</p>
+</section>
+<section id="setting-up-docker-compose">
+<h3>Setting Up Docker Compose<a class="headerlink" href="#setting-up-docker-compose" title="Link to this heading"></a></h3>
+<section id="create-a-docker-compose-yml-file">
+<h4>1. Create a <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> File<a class="headerlink" href="#create-a-docker-compose-yml-file" title="Link to this heading"></a></h4>
+<p>Create a new file named <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> in your project directory. This file will define the Docker services and link the volumes.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">robotics-env</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./workspace:/home/myuser/workspace</span>
+<span class="w">    </span><span class="nt">stdin_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># Equivalent to `-i` in `docker run`</span>
+<span class="w">    </span><span class="nt">tty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># Equivalent to `-t` in `docker run`</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/bin/bash</span>
+</pre></div>
+</div>
+<section id="explanation">
+<h5>Explanation:<a class="headerlink" href="#explanation" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stdin_open:</span> <span class="pre">true</span></code>: This is equivalent to using the <code class="docutils literal notranslate"><span class="pre">-i</span></code> flag with <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code>. It keeps the standard input (stdin) open even if not attached.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tty:</span> <span class="pre">true</span></code>: This is equivalent to using the <code class="docutils literal notranslate"><span class="pre">-t</span></code> flag with <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code>. It allocates a pseudo-TTY, which makes the terminal session interactive.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">command:</span> <span class="pre">/bin/bash</span></code>: Ensures that when the container starts, it opens a bash shell, allowing you to interact with the container.</p></li>
+</ul>
+</section>
+</section>
+<section id="run-docker-compose">
+<h4>2. Run Docker Compose<a class="headerlink" href="#run-docker-compose" title="Link to this heading"></a></h4>
+<p>To start the container in interactive mode, simply use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up
+</pre></div>
+</div>
+<p>This command will start your container as specified in the <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file, attaching the terminal to it, so you can interact with the shell inside the container.</p>
+</section>
+<section id="accessing-the-container">
+<h4>3. Accessing the Container<a class="headerlink" href="#accessing-the-container" title="Link to this heading"></a></h4>
+<p>Once the container is running, you should automatically be placed inside the container’s bash shell, where you can run commands interactively.</p>
+<section id="running-in-detached-mode">
+<h5>Running in Detached Mode<a class="headerlink" href="#running-in-detached-mode" title="Link to this heading"></a></h5>
+<p>If you later want to run the container in detached mode (not interactively), you can add the <code class="docutils literal notranslate"><span class="pre">-d</span></code> flag to the <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+<p>This runs the container in the background, freeing up your terminal for other tasks.</p>
+</section>
+</section>
+<section id="creating-a-file-inside-the-container">
+<h4>4. Creating a File inside the Container<a class="headerlink" href="#creating-a-file-inside-the-container" title="Link to this heading"></a></h4>
+<p>Let’s test this by creating a file inside the container and ensuring it’s visible on your local machine.</p>
+<ol class="arabic">
+<li><p><strong>Inside the Docker Container:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>/home/myuser/workspace/newfile.txt
+</pre></div>
+</div>
+</li>
+<li><p><strong>On your local machine:</strong> Check your <code class="docutils literal notranslate"><span class="pre">./workspace</span></code> directory, and you should see <code class="docutils literal notranslate"><span class="pre">`newfile.txt`</span></code> there.</p></li>
+</ol>
+<p>This synchronization ensures that all your work inside the Docker environment is consistent with your local development setup, making it easier to manage code and collaborate.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="versioncontrol.html" class="btn btn-neutral float-left" title="Version Control with Git" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="linux.html" class="btn btn-neutral float-right" title="Basic Linux Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Witty Wizard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

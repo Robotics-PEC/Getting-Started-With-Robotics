@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Version Control with Git &mdash; Robotics 101  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=010c87b6" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Docker" href="docker.html" />
+    <link rel="prev" title="Getting Started with Robotics" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Robotics 101
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Version Control with Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-git">What is Git?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-git">Installing Git</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-windows">For Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-macos">For MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#git-commands-summary">Git commands summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#why-docker">Why Docker? 🐳</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#installing-docker">Installing Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#macos">MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#building-the-docker-image">Building the Docker Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#linking-local-volume-to-docker-using-docker-compose">Linking Local Volume to Docker using Docker Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#why-do-we-need-to-link-volumes">Why Do We Need to Link Volumes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#what-is-docker-compose">What is Docker Compose? 🐳</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#setting-up-docker-compose">Setting Up Docker Compose</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#create-a-docker-compose-yml-file">1. Create a <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#run-docker-compose">2. Run Docker Compose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#accessing-the-container">3. Accessing the Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#creating-a-file-inside-the-container">4. Creating a File inside the Container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Basic Linux Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#navigating-the-filesystem">Navigating the Filesystem 🗂️</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#pwd-print-working-directory">1. <cite>pwd</cite> (Print Working Directory)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#ls-list-directory-contents">2. <cite>ls</cite> (List Directory Contents)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#cd-change-directory">3. <cite>cd</cite> (Change Directory)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#file-operations">File Operations 📁</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#touch-create-a-file">1. <cite>touch</cite> (Create a File)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#mkdir-create-a-directory">2. <cite>mkdir</cite> (Create a Directory)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#cp-copy-files">3. <cite>cp</cite> (Copy Files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#mv-move-rename-files">4. <cite>mv</cite> (Move/Rename Files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#rm-remove-files-directories">5. <cite>rm</cite> (Remove Files/Directories)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html">Compiling and Executing C Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programmingc.html#practice-question">Practice Question</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="programmingc.html#d-robot-simulation">2D Robot Simulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#how-to-write-technical-documentation">How to write technical documentation.</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Robotics 101</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Version Control with Git</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Robotics-PEC/Getting-Started-With-Robotics/blob/main/docs/source/versioncontrol.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="version-control-with-git">
+<h1>Version Control with Git<a class="headerlink" href="#version-control-with-git" title="Link to this heading"></a></h1>
+<p>Version control,a.k.a.,source control, is practice of tracking and managing changes to software code. Version control system keep track of all the changes to source code over time and the user who made those changes.
+It is like a time machine that help you save all your progress and then if you did something wrong go back to the last working commit and start working from their.</p>
+<p>It is also useful for team collaboration, with multiple members working on same piece of code it is easier to manage and merge the changes made by multiple developers. Back to the time machine analogy, think of it as
+multiple members working at different time and then going back in time and combining their efforts into a single activity.</p>
+<section id="what-is-git">
+<h2>What is Git?<a class="headerlink" href="#what-is-git" title="Link to this heading"></a></h2>
+<p>Git is the most widely adopted and stable verison control system thier exists.
+It is a distributed version control system, which means that every developer has a complete copy of the repository on their local machine, so any change you make to the code is saved locally and needs to be pushed to the remote repository.</p>
+<p>Their are also other type of version control system like Subversion (SVN) that are centralized, which means that there is a single central repository and all the developers have to connect to that repository to make changes. SVN requires
+internet connection to the server to commit changes.</p>
+<p>For our purposes we will be using Git as our version control system.</p>
+</section>
+<section id="installing-git">
+<h2>Installing Git<a class="headerlink" href="#installing-git" title="Link to this heading"></a></h2>
+<p>Git is free and open source software, so you can download it from the official website. The installation process is different for each operating system.</p>
+<section id="for-windows">
+<h3>For Windows<a class="headerlink" href="#for-windows" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Download the latest version of Git for Windows from the <a class="reference external" href="https://git-scm.com/download/win">official website</a>.</p></li>
+<li><p>Run the installer and follow the instructions.</p></li>
+<li><p>During the installation, you can choose the default options or customize them according to your preferences.</p></li>
+</ol>
+</section>
+<section id="for-macos">
+<h3>For MacOS<a class="headerlink" href="#for-macos" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Open the Terminal application.</p></li>
+<li><p>If Homebrew is not installed, install it by running the following command:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Install Git using Homebrew by running the command:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>git
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Verify the installation by running:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>--version
+</pre></div>
+</div>
+</section>
+</section>
+<section id="git-commands-summary">
+<h2>Git commands summary<a class="headerlink" href="#git-commands-summary" title="Link to this heading"></a></h2>
+<p>This is a summary of the most common Git commands. For more detailed information, please refer to the <a class="reference external" href="https://git-scm.com/doc">official Git documentation</a>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span> <span class="pre">&lt;directory&gt;</span></code></p></td>
+<td><p>Create an empty Git repository in the specified directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">&lt;repo-url&gt;</span></code></p></td>
+<td><p>Clone an existing repository from a remote URL.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">user.name</span></code></p></td>
+<td><p>Set the author’s name for commits (Should match your remote username)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;directory&gt;</span></code></p></td>
+<td><p>Stage all changes in a directory for the next commit.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;msg&quot;</span></code></p></td>
+<td><p>Commit staged changes with a message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p></td>
+<td><p>Show the status of files (staged, unstaged, untracked).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code></p></td>
+<td><p>Display commit history.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">revert</span> <span class="pre">&lt;commit&gt;</span></code></p></td>
+<td><p>Create a new commit that undoes the changes of a previous commit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">&lt;file&gt;</span></code></p></td>
+<td><p>Unstage a file but keep the working directory unchanged.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clean</span> <span class="pre">-n</span></code></p></td>
+<td><p>Show untracked files to be removed.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--amend</span></code></p></td>
+<td><p>Modify the most recent commit message.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">&lt;base&gt;</span></code></p></td>
+<td><p>Rebase the current branch onto another branch or commit.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reflog</span></code></p></td>
+<td><p>Show a log of changes to HEAD.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code></p></td>
+<td><p>List all branches.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">&lt;branch&gt;</span></code></p></td>
+<td><p>Create and switch to a new branch.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">&lt;branch&gt;</span></code></p></td>
+<td><p>Merge another branch into the current branch.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;url&gt;</span></code></p></td>
+<td><p>Add a new remote repository.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span> <span class="pre">&lt;remote&gt;</span></code></p></td>
+<td><p>Fetch updates from a remote repository.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">&lt;remote&gt;</span></code></p></td>
+<td><p>Fetch and merge changes from a remote branch.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">&lt;branch&gt;</span></code></p></td>
+<td><p>Push local changes to a remote branch.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Getting Started with Robotics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="docker.html" class="btn btn-neutral float-right" title="Docker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Witty Wizard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

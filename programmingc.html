@@ -3,16 +3,16 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search &mdash; Robotics 101  documentation</title>
+  <title>Compiling and Executing C Code &mdash; Robotics 101  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=010c87b6" />
 
   
-    
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
@@ -20,11 +20,12 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Documentation" href="documentation.html" />
+    <link rel="prev" title="Basic Linux Commands" href="linux.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,7 +41,7 @@
               <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -48,7 +49,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="versioncontrol.html">Version Control with Git</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#what-is-git">What is Git?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#installing-git">Installing Git</a><ul>
@@ -100,10 +101,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="programmingc.html">Compiling and Executing C Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programmingc.html#examples">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="programmingc.html#practice-question">Practice Question</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="programmingc.html#d-robot-simulation">2D Robot Simulation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Compiling and Executing C Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#practice-question">Practice Question</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#d-robot-simulation">2D Robot Simulation</a></li>
 </ul>
 </li>
 </ul>
@@ -128,8 +129,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Search</li>
+      <li class="breadcrumb-item active">Compiling and Executing C Code</li>
       <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Robotics-PEC/Getting-Started-With-Robotics/blob/main/docs/source/programmingc.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -137,22 +139,93 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <section id="compiling-and-executing-c-code">
+<h1>Compiling and Executing C Code<a class="headerlink" href="#compiling-and-executing-c-code" title="Link to this heading"></a></h1>
+<p>To work with C programs in a Linux environment, you’ll need to know how to compile and run your code using the command line. Here’s how you can do it:</p>
+<p>### 1. Compiling the C Program</p>
+<p>To compile the C program, you can use the gcc compiler, which is widely used in Linux environments. The general syntax for compiling a C program is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>-o<span class="w"> </span>output_name<span class="w"> </span>source_file.c
+</pre></div>
+</div>
+<p>For our example, compile the <cite>main.c</cite> file like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>gcc</cite>: The GNU C Compiler.</p></li>
+<li><p><cite>-o hello</cite>: This specifies the output file name. In this case, the compiled program will be named <cite>hello</cite>.</p></li>
+<li><p><cite>hello.c</cite>: The source file you want to compile.</p></li>
+</ul>
+<p>### 2. Executing the Compiled Program</p>
+<p>Once your program is compiled successfully, you can run it using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hello
+</pre></div>
+</div>
+<p>This will execute the <cite>hello</cite> program and output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello,<span class="w"> </span>World!
+</pre></div>
+</div>
+</section>
+<section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="workspace/1.Hello_World/README.md">Hello, World!</a></p></li>
+<li><p><a class="reference external" href="workspace/2.Variables/README.md">Variables and Data Type</a></p></li>
+<li><p><a class="reference external" href="workspace/3.Control_Structures/1.if_else/README.md">If Else Statements</a></p></li>
+<li><p><a class="reference external" href="workspace/3.Control_Structures/2.while_loop/README.md">While Loop</a></p></li>
+<li><p><a class="reference external" href="workspace/3.Control_Structures/3.for_loop/README.md">For Loop</a></p></li>
+<li><p><a class="reference external" href="workspace/4.Functions/README.md">Functions</a></p></li>
+<li><p><a class="reference external" href="workspace/5.Arrays/README.md">Arrays</a></p></li>
+<li><p><a class="reference external" href="workspace/6.Structures/README.md">Structures</a></p></li>
+<li><p><a class="reference external" href="workspace/7.Robot_Simulation/README.md">Robot Simulation</a></p></li>
+</ol>
+<section id="practice-question">
+<h2>Practice Question<a class="headerlink" href="#practice-question" title="Link to this heading"></a></h2>
+<section id="d-robot-simulation">
+<h3>2D Robot Simulation<a class="headerlink" href="#d-robot-simulation" title="Link to this heading"></a></h3>
+<p>### Objective:</p>
+<p>Create a simulation for a robot that can move in a 2-dimensional space. The robot should have the ability to move both horizontally (x-axis) and vertically (y-axis). After simulating the movement, calculate and print the total displacement of the robot from its starting position.</p>
+<p>### Instructions:</p>
+<ol class="arabic">
+<li><p><strong>Define a `struct` for the Robot</strong>:</p>
+<ul class="simple">
+<li><p>The <cite>Robot</cite> struct should include:
+- <cite>name</cite>: The name of the robot.
+- <cite>x_position</cite>: The position of the robot on the x-axis.
+- <cite>y_position</cite>: The position of the robot on the y-axis.
+- <cite>x_speed</cite>: The speed of the robot along the x-axis.
+- <cite>y_speed</cite>: The speed of the robot along the y-axis.</p></li>
+</ul>
+</li>
+<li><p><strong>Create a function</strong> to update the robot’s position based on its speed and the time interval.</p></li>
+<li><p><strong>Create a function</strong> to print the robot’s current position.</p></li>
+<li><p><strong>Simulate the robot’s movement</strong> over a series of time intervals (e.g., 10 intervals).</p></li>
+<li><p><strong>Calculate the total displacement</strong> of the robot from its starting position. The displacement is the magnitude of the vector from the starting position <cite>(0, 0)</cite> to the final position <cite>(x_position, y_position)</cite> and can be calculated using the formula:</p>
+<div class="math notranslate nohighlight">
+\[\text{Displacement} = \sqrt{(\text{x\_position})^2 + (\text{y\_position})^2}\]</div>
+</li>
+<li><p><strong>Print the robot’s position</strong> at each time interval and the total displacement at the end.</p></li>
+</ol>
+<p><strong>Example Output:</strong></p>
+<ul class="simple">
+<li><p>Time Interval 1: Position (x, y) = (1, 2)</p></li>
+<li><p>Time Interval 2: Position (x, y) = (2, 4)</p></li>
+<li><p>…</p></li>
+<li><p><strong>Total Displacement:</strong> 10.77 units</p></li>
+</ul>
+<p>### Additional Challenge:</p>
+<p>Allow the robot to change its speed randomly at each time interval and observe how this affects its final displacement.</p>
+</section>
+</section>
+</section>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="linux.html" class="btn btn-neutral float-left" title="Basic Linux Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="documentation.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
@@ -174,14 +247,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-  <script>
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script id="searchindexloader"></script>
-   
-
+  </script> 
 
 </body>
 </html>

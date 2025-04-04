@@ -9,7 +9,8 @@
   <title>Getting Started with Robotics &mdash; Robotics 101  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=364fe29c" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=010c87b6" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -17,9 +18,13 @@
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Version Control with Git" href="versioncontrol.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,11 +47,73 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Getting Started with Robotics</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="versioncontrol.html">Version Control with Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#what-is-git">What is Git?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#installing-git">Installing Git</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="versioncontrol.html#for-windows">For Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="versioncontrol.html#for-macos">For MacOS</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#git-commands-summary">Git commands summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#why-docker">Why Docker? 🐳</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#installing-docker">Installing Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#macos">MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#building-the-docker-image">Building the Docker Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#linking-local-volume-to-docker-using-docker-compose">Linking Local Volume to Docker using Docker Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#why-do-we-need-to-link-volumes">Why Do We Need to Link Volumes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#what-is-docker-compose">What is Docker Compose? 🐳</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker.html#setting-up-docker-compose">Setting Up Docker Compose</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#create-a-docker-compose-yml-file">1. Create a <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#run-docker-compose">2. Run Docker Compose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#accessing-the-container">3. Accessing the Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="docker.html#creating-a-file-inside-the-container">4. Creating a File inside the Container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Basic Linux Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#navigating-the-filesystem">Navigating the Filesystem 🗂️</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#pwd-print-working-directory">1. <cite>pwd</cite> (Print Working Directory)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#ls-list-directory-contents">2. <cite>ls</cite> (List Directory Contents)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#cd-change-directory">3. <cite>cd</cite> (Change Directory)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#file-operations">File Operations 📁</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#touch-create-a-file">1. <cite>touch</cite> (Create a File)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#mkdir-create-a-directory">2. <cite>mkdir</cite> (Create a Directory)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#cp-copy-files">3. <cite>cp</cite> (Copy Files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#mv-move-rename-files">4. <cite>mv</cite> (Move/Rename Files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html#rm-remove-files-directories">5. <cite>rm</cite> (Remove Files/Directories)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html">Compiling and Executing C Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programmingc.html#practice-question">Practice Question</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="programmingc.html#d-robot-simulation">2D Robot Simulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#how-to-write-technical-documentation">How to write technical documentation.</a></li>
+</ul>
+</li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -63,7 +130,7 @@
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Getting Started with Robotics</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/Robotics-PEC/Getting-Started-With-Robotics/blob/main/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/Robotics-PEC/Getting-Started-With-Robotics/blob/main/docs/source/index.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -73,17 +140,47 @@
              
   <section id="getting-started-with-robotics">
 <h1>Getting Started with Robotics<a class="headerlink" href="#getting-started-with-robotics" title="Link to this heading"></a></h1>
-<p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
-documentation for details.</p>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="versioncontrol.html">Version Control with Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#what-is-git">What is Git?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#installing-git">Installing Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#git-commands-summary">Git commands summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#why-docker">Why Docker? 🐳</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#installing-docker">Installing Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#building-the-docker-image">Building the Docker Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#linking-local-volume-to-docker-using-docker-compose">Linking Local Volume to Docker using Docker Compose</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Basic Linux Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#navigating-the-filesystem">Navigating the Filesystem 🗂️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#file-operations">File Operations 📁</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html">Compiling and Executing C Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programmingc.html#practice-question">Practice Question</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#how-to-write-technical-documentation">How to write technical documentation.</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="versioncontrol.html" class="btn btn-neutral float-right" title="Version Control with Git" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

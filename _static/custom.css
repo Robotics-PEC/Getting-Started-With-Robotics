@@ -1,4 +1,7 @@
-/* Change the blue background in the top logo area */
 .wy-side-nav-search {
-    background-color: rgba(255, 255, 255, 0.712) !important;  /* Change this to 'white' if you want */
+    background-color: rgba(255, 255, 255, 0.712) !important;  
+}
+
+.wy-nav-top {
+    background-color: #B6B6B6 !important; 
 }
