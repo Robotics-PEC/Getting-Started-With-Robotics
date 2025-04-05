@@ -135,3 +135,8 @@ Remote Repositories
 +---------------------------------+-----------------------------------------------------------+
 | ``git push <remote> <branch>``  | Push local changes to a remote branch.                    |
 +---------------------------------+-----------------------------------------------------------+
+
+*****************
+Github
+*****************
+Github is a web-based platform that stores and manages Git repositories on the cloud.
