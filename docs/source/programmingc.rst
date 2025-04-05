@@ -53,7 +53,10 @@ Examples
 
    example/helloworld
    example/variables
-
+   example/functions
+   example/controlstructure/index
+   example/datastructure/index
+   example/robotsimulation
 
 ******************
 Practice Question
@@ -74,11 +77,11 @@ Instructions:
 1. **Define a `struct` for the Robot**:
 
    - The `Robot` struct should include:
-     - `name`: The name of the robot.
-     - `x_position`: The position of the robot on the x-axis.
-     - `y_position`: The position of the robot on the y-axis.
-     - `x_speed`: The speed of the robot along the x-axis.
-     - `y_speed`: The speed of the robot along the y-axis.
+      - `name`: The name of the robot.
+      - `x_position`: The position of the robot on the x-axis.
+      - `y_position`: The position of the robot on the y-axis.
+      - `x_speed`: The speed of the robot along the x-axis.
+      - `y_speed`: The speed of the robot along the y-axis.
 
 2. **Create a function** to update the robot's position based on its speed and the time interval.
 
