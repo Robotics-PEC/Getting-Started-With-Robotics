@@ -1,7 +1,5 @@
-.. _addition_function_program:
-
-Addition Function Program - C
-=============================
+Functions
+=========
 
 This repository contains a simple C program that demonstrates the use of functions by adding two integers and printing the result.
 

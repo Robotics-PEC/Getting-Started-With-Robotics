@@ -1,5 +1,5 @@
-Array Iteration Program - C
-===========================
+Data Structures
+===============
 
 This repository contains a simple C program that demonstrates how to iterate over an array and print its elements.
 

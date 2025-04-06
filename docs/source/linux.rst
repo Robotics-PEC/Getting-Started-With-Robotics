@@ -1,6 +1,11 @@
 #################
-Basic Linux Commands
+Linux Basics
 #################
+
+Now, that we have installed Linux, let's explore how to effectively navigate thorugh the linux system, unlike windows or MacOS, Linux primarliy uses command line interface (CLI),
+their exist graphical user interface (GUI) as well, but the command line is the most powerful and efficient way to interact with the system.
+
+Here are some basic command that you will need to know to get started with Linux.
 
 ****************************
 Navigating the Filesystem 🗂️

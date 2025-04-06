@@ -2,6 +2,17 @@
 Docker
 #################
 
+At Robotics Society, their are many members working on differnet platforms, Linux, Windows, and MacOS. To make sure that all members have a consistent development environment, we use containers.
+Another reason to use containers is that our primary tech stack is based on linux, and it is easier to work on linux through containers than to install it on your local machine.
+
+Thier are many ways to run containers:
+   - Docker (We will use this)
+   - Podman
+   - Singularity
+   - Kubernetes
+   - Rancher
+   - Portainer
+
 ******************
 Why Docker? 🐳
 ******************
@@ -174,6 +185,6 @@ Let's test this by creating a file inside the container and ensuring it's visibl
 
       touch /home/myuser/workspace/newfile.txt
 
-2. **On your local machine:** Check your ``./workspace`` directory, and you should see ```newfile.txt``` there.
+2. **On your local machine:** Check your ``./workspace`` directory, and you should see ``newfile.txt`` there.
 
 This synchronization ensures that all your work inside the Docker environment is consistent with your local development setup, making it easier to manage code and collaborate.

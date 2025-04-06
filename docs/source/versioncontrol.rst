@@ -2,7 +2,10 @@
 Version Control with Git
 ########################
 
-Version control,a.k.a.,source control, is practice of tracking and managing changes to software code. Version control system keep track of all the changes to source code over time and the user who made those changes.
+When working on a project, specially a robotics project, where multiple teams are working on the same code base, it is important to have a way to track and manage those changes. This is where 
+version control comes in.
+
+Version control, also known as, source control, is practice of tracking and managing changes to software code. Version control system keep track of all the changes to source code over time and the user who made those changes.
 It is like a time machine that help you save all your progress and then if you did something wrong go back to the last working commit and start working from their.
 
 It is also useful for team collaboration, with multiple members working on same piece of code it is easier to manage and merge the changes made by multiple developers. Back to the time machine analogy, think of it as
@@ -139,4 +142,6 @@ Remote Repositories
 *****************
 Github
 *****************
-Github is a web-based platform that stores and manages Git repositories on the cloud.
+
+Github is a web-based platform that stores and manages Git repositories on the cloud. It is like a google cloud for your code. It allows you to directly push code to the cloud and 
+share it with others. In this tutorial we will be using Github for getting the code and pushing the practice code.

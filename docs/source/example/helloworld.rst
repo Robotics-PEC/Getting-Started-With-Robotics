@@ -1,5 +1,5 @@
-Hello, World! - C Program
-==========================
+Hello, World!
+==============
 
 This repository contains a simple C program that outputs the text "Hello, World!" to the console. This is often the first program beginners write when learning a new programming language, as it introduces basic concepts such as syntax, structure, and the process of compiling and executing code.
 

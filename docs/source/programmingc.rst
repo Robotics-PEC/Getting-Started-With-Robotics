@@ -1,5 +1,5 @@
 ###############################
-Learning C Programming
+C Programming
 ###############################
 
 To work with C programs in a Linux environment, you'll need to know how to compile and run your code using the command line. Here's how you can do it:
@@ -24,9 +24,9 @@ For our example, compile the `main.c` file like this:
 
    gcc -o hello hello.c
 
-- `gcc`: The GNU C Compiler.
-- `-o hello`: This specifies the output file name. In this case, the compiled program will be named `hello`.
-- `hello.c`: The source file you want to compile.
+- ``gcc``: The GNU C Compiler.
+- ``-o hello``: This specifies the output file name. In this case, the compiled program will be named `hello`.
+- ``hello.c``: The source file you want to compile.
 
 ==================================
 2. Executing the Compiled Program
@@ -77,11 +77,11 @@ Instructions:
 1. **Define a `struct` for the Robot**:
 
    - The `Robot` struct should include:
-      - `name`: The name of the robot.
-      - `x_position`: The position of the robot on the x-axis.
-      - `y_position`: The position of the robot on the y-axis.
-      - `x_speed`: The speed of the robot along the x-axis.
-      - `y_speed`: The speed of the robot along the y-axis.
+      - name: The name of the robot.
+      - x\ :sub:`position`\: The position of the robot on the x-axis.
+      - y\ :sub:`position`\: The position of the robot on the y-axis.
+      - x\ :sub:`speed`\: The speed of the robot along the x-axis.
+      - y\ :sub:`speed`\: The speed of the robot along the y-axis.
 
 2. **Create a function** to update the robot's position based on its speed and the time interval.
 
@@ -93,7 +93,7 @@ Instructions:
 
    .. math::
 
-      \text{Displacement} = \sqrt{(\text{x\_position})^2 + (\text{y\_position})^2}
+      \text{Displacement} = \sqrt{(x_{\text{position}})^2 + (y_{\text{position}})^2}
 
 6. **Print the robot's position** at each time interval and the total displacement at the end.
 

@@ -1,5 +1,5 @@
-Robot Simulation Program - C
-============================
+Robot Simulation
+================
 
 This repository contains a simple C program that demonstrates the use of structures to represent a robot with a name, speed, and position, and update the position with respect to time.
 
