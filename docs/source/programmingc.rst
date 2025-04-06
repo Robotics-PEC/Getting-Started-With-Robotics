@@ -44,9 +44,9 @@ This will execute the `hello` program and output:
 
    Hello, World!
 
-*********
-Examples
-*********
+**********************
+C Programming Concepts
+**********************
 
 .. toctree::
    :maxdepth: 1

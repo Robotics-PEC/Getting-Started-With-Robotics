@@ -145,3 +145,9 @@ Github
 
 Github is a web-based platform that stores and manages Git repositories on the cloud. It is like a google cloud for your code. It allows you to directly push code to the cloud and 
 share it with others. In this tutorial we will be using Github for getting the code and pushing the practice code.
+
+.. important::
+
+    **Work in Progress!**
+
+    This section is a work in progress, and will be updated soon (When I get bored with my current work, or you decide to complete it ✌️).
