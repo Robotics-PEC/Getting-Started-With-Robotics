@@ -107,28 +107,41 @@
 <li class="toctree-l3"><a class="reference internal" href="../../programmingc.html#executing-the-compiled-program">2. Executing the Compiled Program</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../programmingc.html#examples">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../programmingc.html#c-programming-concepts">C Programming Concepts</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../helloworld.html">Hello, World!</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../helloworld.html#code-explanation">Code Explanation</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../variables.html">Variables and Data Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../variables.html#memory-in-c">Memory in C</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../variables.html#data-types-in-c">Data Types in C</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../variables.html#constants-const">Constants (const)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../variables.html#code-explanation">Code Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../variables.html#pointers-and-dereferencing">Pointers and Dereferencing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../variables.html#strings">Strings</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../functions.html">Functions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../functions.html#what-is-a-function">What is a function?</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../functions.html#function-prototypes">Function Prototypes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../functions.html#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#passing-pointers-to-functions">Passing Pointers to Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#returning-pointers-from-functions">Returning Pointers from Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#scope-of-variables-and-pointers">Scope of Variables and Pointers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#pointer-to-a-function">Pointer to a Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#passing-arrays-to-functions">Passing Arrays to Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../controlstructure/index.html">Control Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../controlstructure/index.html">Control Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../controlstructure/index.html#conditional-statements">Conditional Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../controlstructure/index.html#loops">Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../controlstructure/index.html#loop-control-break-and-continue">Loop Control: break and continue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../controlstructure/index.html#goto-statement">goto Statement</a></li>
+</ul>
+</li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Data Structures</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#what-are-arrays">What are Arrays</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-code">Example Code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#memory-in-c">Memory in C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arrays">Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#structures-struct">Structures (<cite>struct</cite>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unions-union">Unions (<cite>union</cite>)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../robotsimulation.html">Robot Simulation</a><ul>
@@ -183,54 +196,220 @@
              
   <section id="data-structures">
 <h1>Data Structures<a class="headerlink" href="#data-structures" title="Link to this heading"></a></h1>
-<p>This repository contains a simple C program that demonstrates how to iterate over an array and print its elements.</p>
-<section id="what-are-arrays">
-<h2>What are Arrays<a class="headerlink" href="#what-are-arrays" title="Link to this heading"></a></h2>
-<p>An array is a structure that can hold a given amount of data. In this structure, every single data element has an index that can be used to address that data.</p>
-<p>Think of arrays as lists; every item has a serial number.</p>
-<p>We can access any index (serial number) in an array by just calling that array with the index we want to access.</p>
-<p>For example, if we have an array called <cite>numbers</cite>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">};</span>
+<p>This documentation provides a comprehensive explanation of essential data structures in C, including static and dynamic arrays, structures, unions, and bit-fields. It also covers memory allocation using <cite>malloc()</cite>.</p>
+<section id="memory-in-c">
+<h2>Memory in C<a class="headerlink" href="#memory-in-c" title="Link to this heading"></a></h2>
+<p>Before diving into arrays and other data structures, it’s important to understand how memory is managed in C. Memory in C is broadly divided into the following segments:</p>
+<ul class="simple">
+<li><p><strong>Stack</strong>: Used for static memory allocation. Local variables and function call information are stored here. Memory is managed automatically.</p></li>
+<li><p><strong>Heap</strong>: Used for dynamic memory allocation. You can allocate and free memory manually using functions like <cite>malloc()</cite>, <cite>calloc()</cite>, <cite>realloc()</cite>, and <cite>free()</cite>.</p></li>
+<li><p><strong>Data segment</strong>: Stores global and static variables.</p></li>
+<li><p><strong>Code segment (Text segment)</strong>: Stores compiled program code.</p></li>
+</ul>
+<p>C provides several standard library functions for memory allocation:</p>
+<ul class="simple">
+<li><p><cite>malloc(size_t size)</cite> — Allocates a block of memory of given size.</p></li>
+<li><p><cite>calloc(size_t num, size_t size)</cite> — Allocates memory for an array and initializes it to zero.</p></li>
+<li><p><cite>realloc(void *ptr, size_t size)</cite> — Changes the size of an existing block of memory.</p></li>
+<li><p><cite>free(void *ptr)</cite> — Frees previously allocated memory.</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"> </span><span class="c1">// allocates memory for one int</span>
+<span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="n">free</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span><span class="w"> </span><span class="c1">// always free dynamically allocated memory</span>
 </pre></div>
 </div>
-<p>We can access any index by:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">index_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="c1">// This gives an output of 30</span>
-</pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always check if memory allocation was successful by verifying the pointer is not <cite>NULL</cite>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Array indexing starts with the number 0.</p>
-<p>So for <cite>{10, 20, 30, 40, 50}</cite>, the indexes are <cite>{0, 1, 2, 3, 4}</cite>.</p>
+<p>Computers manage memory in <strong>chunks of 8 bits (1 byte)</strong>. When you allocate memory, the compiler assigns a specific number of bytes depending on the data type:</p>
+<ul class="simple">
+<li><p><cite>char</cite> → 1 byte (8 bits)</p></li>
+<li><p><cite>short</cite> → 2 bytes (16 bits)</p></li>
+<li><p><cite>int</cite> → 4 bytes (32 bits)</p></li>
+<li><p><cite>float</cite> → 4 bytes (32 bits)</p></li>
+<li><p><cite>double</cite> → 8 bytes (64 bits)</p></li>
+</ul>
+<p>Memory is stored in <strong>contiguous byte-addressable cells</strong>. Each byte has a unique address. Larger data types occupy multiple consecutive addresses. For example, an <cite>int</cite> might occupy addresses 1000–1003.</p>
+<p>Modern CPUs and compilers may align data to <strong>8-byte or 4-byte boundaries</strong> for performance reasons. This is known as <strong>alignment</strong> and may cause <strong>padding</strong> bytes to be inserted between members.</p>
 </div>
 </section>
-<section id="example-code">
-<h2>Example Code<a class="headerlink" href="#example-code" title="Link to this heading"></a></h2>
+<section id="arrays">
+<h2>Arrays<a class="headerlink" href="#arrays" title="Link to this heading"></a></h2>
+<section id="what-is-an-array">
+<h3>What is an Array?<a class="headerlink" href="#what-is-an-array" title="Link to this heading"></a></h3>
+<p>An array is a fixed-size, indexed collection of elements of the same data type stored in contiguous memory locations. Arrays allow fast access to elements using an index, which starts at 0.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Accessing elements:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">third</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="c1">// third = 30</span>
+</pre></div>
+</div>
+<section id="characteristics">
+<h4>Characteristics<a class="headerlink" href="#characteristics" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Homogeneous: All elements must be of the same type.</p></li>
+<li><p>Fixed size: Cannot grow or shrink during runtime.</p></li>
+<li><p>Contiguous memory: Efficient for iteration and access.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The size of an array must be known at compile time when declared statically.</p>
+</div>
+</section>
+</section>
+<section id="dynamic-arrays">
+<h3>Dynamic Arrays<a class="headerlink" href="#dynamic-arrays" title="Link to this heading"></a></h3>
+<section id="what-is-a-dynamic-array">
+<h4>What is a Dynamic Array?<a class="headerlink" href="#what-is-a-dynamic-array" title="Link to this heading"></a></h4>
+<p>Unlike static arrays, dynamic arrays can be allocated at runtime using functions from the <cite>stdlib.h</cite> library, like <cite>malloc()</cite> or <cite>calloc()</cite>.</p>
+</section>
+<section id="malloc-memory-allocation">
+<h4><cite>malloc()</cite> — Memory Allocation<a class="headerlink" href="#malloc-memory-allocation" title="Link to this heading"></a></h4>
+<p><cite>malloc()</cite> stands for “memory allocation.” It reserves a specified number of bytes in the heap and returns a pointer to the beginning of the allocated memory block.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>This allocates memory for 5 integers (assuming 4 bytes each, 20 bytes total) and returns a pointer to that memory.</p>
+</section>
+<section id="full-example">
+<h4>Full Example<a class="headerlink" href="#full-example" title="Link to this heading"></a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">};</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numbers</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Memory allocation failed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <span class="w">    </span><span class="p">}</span>
 
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">numbers</span><span class="p">);</span><span class="w"> </span><span class="c1">// Frees the allocated memory</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </section>
-<section id="explanation">
-<h2>Explanation<a class="headerlink" href="#explanation" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><p><strong>Array Declaration:</strong> The program defines an integer array <cite>numbers</cite> with 5 elements: <cite>10, 20, 30, 40, 50</cite>.</p></li>
-<li><p><strong>For Loop:</strong></p>
+<section id="id1">
+<h4>Characteristics<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
 <ul class="simple">
-<li><p>The <cite>for</cite> loop iterates over each element in the <cite>numbers</cite> array.</p></li>
-<li><p>The loop variable <cite>i</cite> runs from 0 to 4, corresponding to the indices of the array elements.</p></li>
-<li><p>During each iteration, the program prints the value of the corresponding array element.</p></li>
+<li><p>Memory is allocated on the heap.</p></li>
+<li><p>Lifetime is controlled manually — you must use <code class="docutils literal notranslate"><span class="pre">free()</span></code> when done.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">malloc()</span></code> returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if the memory could not be allocated.</p></li>
+<li><p>Useful when array size is not known at compile time.</p></li>
 </ul>
-</li>
-</ol>
+</section>
+</section>
+</section>
+<section id="structures-struct">
+<h2>Structures (<cite>struct</cite>)<a class="headerlink" href="#structures-struct" title="Link to this heading"></a></h2>
+<section id="what-is-a-structure">
+<h3>What is a Structure?<a class="headerlink" href="#what-is-a-structure" title="Link to this heading"></a></h3>
+<p>A <cite>struct</cite> is a composite data type that groups variables (called members) under a single name. Members can be of different data types.</p>
+<section id="example">
+<h4>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">height</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mf">5.7</span><span class="p">};</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Name: %s, Age: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">age</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h4>Characteristics<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Members are laid out in memory in order.</p></li>
+<li><p>Memory size is the sum of all members (with possible padding).</p></li>
+<li><p>Can be nested (a struct inside another struct).</p></li>
+</ul>
+</section>
+</section>
+<section id="bit-fields-in-structs">
+<h3>Bit Fields in Structs<a class="headerlink" href="#bit-fields-in-structs" title="Link to this heading"></a></h3>
+<section id="what-are-bit-fields">
+<h4>What are Bit Fields?<a class="headerlink" href="#what-are-bit-fields" title="Link to this heading"></a></h4>
+<p>Bit-fields allow the allocation of a specific number of bits to structure members. They’re commonly used for flags or compact data storage.</p>
+</section>
+<section id="id3">
+<h4>Example<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Flags</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">is_visible</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">is_enabled</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">has_error</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Flags</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">};</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Visible: %d, Enabled: %d, Error: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="n">status</span><span class="p">.</span><span class="n">is_visible</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">.</span><span class="n">is_enabled</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">.</span><span class="n">has_error</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h4>Characteristics<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Memory-efficient: Useful when only a few bits are needed per field.</p></li>
+<li><p>Each field’s width is specified in bits.</p></li>
+<li><p>Cannot take address of a bit-field (e.g., <cite>&amp;flag.is_visible</cite> is invalid).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Bit-fields are implementation-defined: behavior can vary between compilers.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="unions-union">
+<h2>Unions (<cite>union</cite>)<a class="headerlink" href="#unions-union" title="Link to this heading"></a></h2>
+<section id="what-is-a-union">
+<h3>What is a Union?<a class="headerlink" href="#what-is-a-union" title="Link to this heading"></a></h3>
+<p>A <cite>union</cite> is similar to a <cite>struct</cite>, but all members share the <strong>same memory</strong> location. Only one member can be used at a time.</p>
+<section id="id5">
+<h4>Example<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">union</span><span class="w"> </span><span class="nc">Data</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="k">union</span><span class="w"> </span><span class="nc">Data</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="n">data</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="n">data</span><span class="p">.</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">220.5</span><span class="p">;</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;data.f = %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h4>Characteristics<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Memory-efficient: Takes the size of the <strong>largest</strong> member.</p></li>
+<li><p>Changing one member affects others.</p></li>
+<li><p>Commonly used in embedded systems, hardware access, or communication protocols.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful when reading a member that wasn’t the last written; it results in undefined behavior.</p>
+</div>
+</section>
+</section>
 </section>
 </section>
 

@@ -107,28 +107,41 @@
 <li class="toctree-l3"><a class="reference internal" href="../programmingc.html#executing-the-compiled-program">2. Executing the Compiled Program</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="reference internal" href="../programmingc.html#examples">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../programmingc.html#c-programming-concepts">C Programming Concepts</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="helloworld.html">Hello, World!</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="helloworld.html#code-explanation">Code Explanation</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="variables.html">Variables and Data Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="variables.html#memory-in-c">Memory in C</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variables.html#data-types-in-c">Data Types in C</a></li>
-<li class="toctree-l4"><a class="reference internal" href="variables.html#constants-const">Constants (const)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="variables.html#code-explanation">Code Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variables.html#pointers-and-dereferencing">Pointers and Dereferencing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variables.html#strings">Strings</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="functions.html">Functions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="functions.html#what-is-a-function">What is a function?</a></li>
 <li class="toctree-l4"><a class="reference internal" href="functions.html#function-prototypes">Function Prototypes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="functions.html#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#passing-pointers-to-functions">Passing Pointers to Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#returning-pointers-from-functions">Returning Pointers from Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#scope-of-variables-and-pointers">Scope of Variables and Pointers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#pointer-to-a-function">Pointer to a Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#passing-arrays-to-functions">Passing Arrays to Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="controlstructure/index.html">Control Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlstructure/index.html">Control Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#conditional-statements">Conditional Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#loops">Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#loop-control-break-and-continue">Loop Control: break and continue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#goto-statement">goto Statement</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="datastructure/index.html">Data Structures</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#what-are-arrays">What are Arrays</a></li>
-<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#example-code">Example Code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#memory-in-c">Memory in C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#arrays">Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#structures-struct">Structures (<cite>struct</cite>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#unions-union">Unions (<cite>union</cite>)</a></li>
 </ul>
 </li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Robot Simulation</a><ul>
@@ -184,12 +197,139 @@
   <section id="robot-simulation">
 <h1>Robot Simulation<a class="headerlink" href="#robot-simulation" title="Link to this heading"></a></h1>
 <p>This repository contains a simple C program that demonstrates the use of structures to represent a robot with a name, speed, and position, and update the position with respect to time.</p>
+<p><strong>Source File</strong>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1">// Define a struct to represent the Robot</span>
+<span class="linenos"> 4</span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">position</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">speed</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="p">}</span><span class="w"> </span><span class="n">Robot</span><span class="p">;</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1">// Function to update the state of the robot</span>
+<span class="linenos">11</span><span class="n">Robot</span><span class="w"> </span><span class="nf">update_robot_state</span><span class="p">(</span><span class="n">Robot</span><span class="w"> </span><span class="n">robot</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">time</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">    </span><span class="c1">// Update the robot&#39;s position based on its speed and time</span>
+<span class="linenos">13</span><span class="w">    </span><span class="n">robot</span><span class="p">.</span><span class="n">position</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">robot</span><span class="p">.</span><span class="n">speed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">time</span><span class="p">;</span>
+<span class="linenos">14</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">robot</span><span class="p">;</span>
+<span class="linenos">15</span><span class="p">}</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1">// Function to print the current state of the robot</span>
+<span class="linenos">18</span><span class="kt">void</span><span class="w"> </span><span class="nf">print_robot_state</span><span class="p">(</span><span class="n">Robot</span><span class="w"> </span><span class="n">robot</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">19</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Robot: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">robot</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Position: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">robot</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+<span class="linenos">21</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Speed: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">robot</span><span class="p">.</span><span class="n">speed</span><span class="p">);</span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="linenos">23</span><span class="p">}</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">26</span><span class="w">    </span><span class="c1">// Create a robot instance</span>
+<span class="linenos">27</span><span class="w">    </span><span class="n">Robot</span><span class="w"> </span><span class="n">myRobot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Robo1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="w">    </span><span class="c1">// Array representing time intervals</span>
+<span class="linenos">30</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">time_intervals</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">};</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="w">    </span><span class="c1">// Loop through each time interval and update the robot&#39;s state</span>
+<span class="linenos">33</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">34</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Time Interval: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">time_intervals</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="linenos">35</span><span class="w">        </span><span class="n">myRobot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">update_robot_state</span><span class="p">(</span><span class="n">myRobot</span><span class="p">,</span><span class="w"> </span><span class="n">time_intervals</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="linenos">36</span><span class="w">        </span><span class="n">print_robot_state</span><span class="p">(</span><span class="n">myRobot</span><span class="p">);</span>
+<span class="linenos">37</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos">40</span><span class="p">}</span>
+</pre></div>
+</div>
 <section id="explanation">
 <h2>Explanation<a class="headerlink" href="#explanation" title="Link to this heading"></a></h2>
+<p>This program demonstrates how to use structures and functions in C to simulate a robot moving over time. Let’s break down each component:</p>
 <ol class="arabic simple">
-<li><p><strong>Update Function</strong>: The <code class="docutils literal notranslate"><span class="pre">update_robot_state</span></code> function now takes a <code class="docutils literal notranslate"><span class="pre">Robot</span></code> struct by value (instead of using a pointer). It updates the robot’s position and returns the updated Robot.</p></li>
-<li><p><strong>Main Function</strong>: The <code class="docutils literal notranslate"><span class="pre">myRobot</span></code> instance is updated by assigning it the value returned by <code class="docutils literal notranslate"><span class="pre">update_robot_state</span></code> after each time interval.</p></li>
+<li><p><strong>Struct Definition:</strong></p></li>
 </ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">position</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">speed</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">Robot</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>This struct defines the properties of a robot:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: A string to store the robot’s name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">position</span></code>: An integer representing the current position of the robot on a 1D line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">speed</span></code>: An integer representing how many units the robot moves per unit time.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Update Function</strong></p></li>
+</ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Function to update the state of the robot</span>
+<span class="n">Robot</span><span class="w"> </span><span class="nf">update_robot_state</span><span class="p">(</span><span class="n">Robot</span><span class="w"> </span><span class="n">robot</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">time</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Update the robot&#39;s position based on its speed and time</span>
+<span class="w">    </span><span class="n">robot</span><span class="p">.</span><span class="n">position</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">robot</span><span class="p">.</span><span class="n">speed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">time</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">robot</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This function takes a Robot structure and a time interval.</p></li>
+<li><p>It updates the robot’s position by multiplying its speed with the time interval.</p></li>
+<li><p>The function returns the updated <code class="docutils literal notranslate"><span class="pre">Robot</span></code>.</p></li>
+<li><p>Note: The robot is passed by value, and the updated structure is reassigned in the main function.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Print Function</p></li>
+</ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Function to print the current state of the robot</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print_robot_state</span><span class="p">(</span><span class="n">Robot</span><span class="w"> </span><span class="n">robot</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Robot: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">robot</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Position: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">robot</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Speed: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">robot</span><span class="p">.</span><span class="n">speed</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Prints the robot’s current name, position, and speed in a readable format.</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Main Function</p></li>
+</ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Create a robot instance</span>
+<span class="w">    </span><span class="n">Robot</span><span class="w"> </span><span class="n">myRobot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Robo1&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Array representing time intervals</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">time_intervals</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Loop through each time interval and update the robot&#39;s state</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Time Interval: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">time_intervals</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">myRobot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">update_robot_state</span><span class="p">(</span><span class="n">myRobot</span><span class="p">,</span><span class="w"> </span><span class="n">time_intervals</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">print_robot_state</span><span class="p">(</span><span class="n">myRobot</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A robot named “Robo1” is created with a starting position of 0 and speed of 5.</p></li>
+<li><p>The time_intervals array represents how long the robot moves during each iteration.</p></li>
+<li><dl class="simple">
+<dt>A loop iterates through the time intervals:</dt><dd><ul>
+<li><p>It prints the current time step.</p></li>
+<li><p>It updates the robot’s position using the update_robot_state function.</p></li>
+<li><p>It then prints the robot’s updated state using print_robot_state.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </section>
 </section>
 

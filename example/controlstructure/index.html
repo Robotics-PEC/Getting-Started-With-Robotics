@@ -107,28 +107,41 @@
 <li class="toctree-l3"><a class="reference internal" href="../../programmingc.html#executing-the-compiled-program">2. Executing the Compiled Program</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../programmingc.html#examples">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../programmingc.html#c-programming-concepts">C Programming Concepts</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../helloworld.html">Hello, World!</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../helloworld.html#code-explanation">Code Explanation</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../variables.html">Variables and Data Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../variables.html#memory-in-c">Memory in C</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../variables.html#data-types-in-c">Data Types in C</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../variables.html#constants-const">Constants (const)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../variables.html#code-explanation">Code Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../variables.html#pointers-and-dereferencing">Pointers and Dereferencing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../variables.html#strings">Strings</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../functions.html">Functions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../functions.html#what-is-a-function">What is a function?</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../functions.html#function-prototypes">Function Prototypes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../functions.html#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#passing-pointers-to-functions">Passing Pointers to Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#returning-pointers-from-functions">Returning Pointers from Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#scope-of-variables-and-pointers">Scope of Variables and Pointers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#pointer-to-a-function">Pointer to a Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#passing-arrays-to-functions">Passing Arrays to Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Control Structures</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Control Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#conditional-statements">Conditional Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loops">Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loop-control-break-and-continue">Loop Control: break and continue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#goto-statement">goto Statement</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../datastructure/index.html">Data Structures</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../datastructure/index.html#what-are-arrays">What are Arrays</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../datastructure/index.html#example-code">Example Code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../datastructure/index.html#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../datastructure/index.html#memory-in-c">Memory in C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../datastructure/index.html#arrays">Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../datastructure/index.html#structures-struct">Structures (<cite>struct</cite>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../datastructure/index.html#unions-union">Unions (<cite>union</cite>)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../robotsimulation.html">Robot Simulation</a><ul>
@@ -183,6 +196,154 @@
              
   <section id="control-structures">
 <h1>Control Structures<a class="headerlink" href="#control-structures" title="Link to this heading"></a></h1>
+<p>This documentation covers the core control structures in C, including conditionals, loops, and the <cite>goto</cite> statement. These constructs control the flow of execution in a program.</p>
+<section id="conditional-statements">
+<h2>Conditional Statements<a class="headerlink" href="#conditional-statements" title="Link to this heading"></a></h2>
+<section id="if-statement">
+<h3>if Statement<a class="headerlink" href="#if-statement" title="Link to this heading"></a></h3>
+<p>Executes a block of code only if the condition is true.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;x is greater than 5</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="if-else-statement">
+<h3>if-else Statement<a class="headerlink" href="#if-else-statement" title="Link to this heading"></a></h3>
+<p>Adds an alternate block if the condition is false.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;x &gt; 5</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;x &lt;= 5</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="else-if-ladder">
+<h3>else-if Ladder<a class="headerlink" href="#else-if-ladder" title="Link to this heading"></a></h3>
+<p>Checks multiple conditions in sequence.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;x &gt; 10</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;x == 10</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;x &lt; 10</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="switch-statement">
+<h3>switch Statement<a class="headerlink" href="#switch-statement" title="Link to this heading"></a></h3>
+<p>Allows multiple execution paths based on the value of a variable.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">day</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Monday</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Tuesday</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Another day</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="loops">
+<h2>Loops<a class="headerlink" href="#loops" title="Link to this heading"></a></h2>
+<p>Loops execute a block of code repeatedly.</p>
+<section id="while-loop">
+<h3>while Loop<a class="headerlink" href="#while-loop" title="Link to this heading"></a></h3>
+<p>Executes as long as the condition is true.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="do-while-loop">
+<h3>do-while Loop<a class="headerlink" href="#do-while-loop" title="Link to this heading"></a></h3>
+<p>Executes the body <strong>at least once</strong>, then checks the condition.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="for-loop">
+<h3>for Loop<a class="headerlink" href="#for-loop" title="Link to this heading"></a></h3>
+<p>Compact loop syntax using initialization, condition, and increment.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="loop-control-break-and-continue">
+<h2>Loop Control: break and continue<a class="headerlink" href="#loop-control-break-and-continue" title="Link to this heading"></a></h2>
+<section id="break-statement">
+<h3>break Statement<a class="headerlink" href="#break-statement" title="Link to this heading"></a></h3>
+<p>Exits the loop immediately.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="continue-statement">
+<h3>continue Statement<a class="headerlink" href="#continue-statement" title="Link to this heading"></a></h3>
+<p>Skips the current iteration and continues with the next.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="goto-statement">
+<h2>goto Statement<a class="headerlink" href="#goto-statement" title="Link to this heading"></a></h2>
+<p>The <cite>goto</cite> statement allows jumping to a labeled part of the program. It’s rarely used and can make code harder to follow, but it’s useful in certain low-level or cleanup scenarios.</p>
+<section id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Link to this heading"></a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">goto</span><span class="w"> </span><span class="n">label</span><span class="p">;</span>
+<span class="c1">// ... other code</span>
+<span class="nl">label</span><span class="p">:</span>
+<span class="c1">// code to jump to</span>
+</pre></div>
+</div>
+<section id="example">
+<h4>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="k">goto</span><span class="w"> </span><span class="n">skip</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;This line is skipped</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="nl">skip</span><span class="p">:</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Jumped to label</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">goto</span></code> sparingly. Overuse can make code difficult to read and debug. Prefer structured control flow (loops, functions) when possible.</p>
+</div>
+</section>
+</section>
+</section>
 </section>
 
 

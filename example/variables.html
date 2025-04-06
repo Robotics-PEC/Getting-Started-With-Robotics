@@ -107,28 +107,41 @@
 <li class="toctree-l3"><a class="reference internal" href="../programmingc.html#executing-the-compiled-program">2. Executing the Compiled Program</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="reference internal" href="../programmingc.html#examples">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../programmingc.html#c-programming-concepts">C Programming Concepts</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="helloworld.html">Hello, World!</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="helloworld.html#code-explanation">Code Explanation</a></li>
 </ul>
 </li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Variables and Data Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#memory-in-c">Memory in C</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#data-types-in-c">Data Types in C</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#constants-const">Constants (const)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#code-explanation">Code Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pointers-and-dereferencing">Pointers and Dereferencing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#strings">Strings</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="functions.html">Functions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="functions.html#what-is-a-function">What is a function?</a></li>
 <li class="toctree-l4"><a class="reference internal" href="functions.html#function-prototypes">Function Prototypes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="functions.html#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#passing-pointers-to-functions">Passing Pointers to Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#returning-pointers-from-functions">Returning Pointers from Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#scope-of-variables-and-pointers">Scope of Variables and Pointers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#pointer-to-a-function">Pointer to a Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="functions.html#passing-arrays-to-functions">Passing Arrays to Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="controlstructure/index.html">Control Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlstructure/index.html">Control Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#conditional-statements">Conditional Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#loops">Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#loop-control-break-and-continue">Loop Control: break and continue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#goto-statement">goto Statement</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="datastructure/index.html">Data Structures</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#what-are-arrays">What are Arrays</a></li>
-<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#example-code">Example Code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#memory-in-c">Memory in C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#arrays">Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#structures-struct">Structures (<cite>struct</cite>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#unions-union">Unions (<cite>union</cite>)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="robotsimulation.html">Robot Simulation</a><ul>
@@ -182,91 +195,134 @@
            <div itemprop="articleBody">
              
   <section id="variables-and-data-types">
-<span id="variables"></span><h1>Variables and Data Types<a class="headerlink" href="#variables-and-data-types" title="Link to this heading"></a></h1>
-<p>This repository contains a simple C program that demonstrates the use of basic data types and the <code class="docutils literal notranslate"><span class="pre">printf</span></code> function to output values in C. The program stores a person’s age, height, and grade, then prints these values to the console.</p>
+<h1>Variables and Data Types<a class="headerlink" href="#variables-and-data-types" title="Link to this heading"></a></h1>
+<p>Now let us discuss variables, including basic data types, pointers, dereferencing, pointer-to-pointer usage, and strings.</p>
+<section id="memory-in-c">
+<h2>Memory in C<a class="headerlink" href="#memory-in-c" title="Link to this heading"></a></h2>
+<p>Before diving into variables and pointers, it’s important to understand how memory is managed in C. Memory in C is broadly divided into the following segments:</p>
+<ul class="simple">
+<li><p><strong>Stack</strong>: Used for static memory allocation. Local variables and function call information are stored here. Memory is managed automatically.</p></li>
+<li><p><strong>Heap</strong>: Used for dynamic memory allocation. You can allocate and free memory manually using functions like <cite>malloc()</cite>, <cite>calloc()</cite>, <cite>realloc()</cite>, and <cite>free()</cite>.</p></li>
+<li><p><strong>Data segment</strong>: Stores global and static variables.</p></li>
+<li><p><strong>Code segment (Text segment)</strong>: Stores compiled program code.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Computers manage memory in <strong>chunks of 8 bits (1 byte)</strong>. When you allocate memory, the compiler assigns a specific number of bytes depending on the data type:</p>
+<ul class="simple">
+<li><p><cite>char</cite> → 1 byte (8 bits)</p></li>
+<li><p><cite>short</cite> → 2 bytes (16 bits)</p></li>
+<li><p><cite>int</cite> → 4 bytes (32 bits)</p></li>
+<li><p><cite>float</cite> → 4 bytes (32 bits)</p></li>
+<li><p><cite>double</cite> → 8 bytes (64 bits)</p></li>
+</ul>
+<p>Memory is stored in <strong>contiguous byte-addressable cells</strong>. Each byte has a unique address. Larger data types occupy multiple consecutive addresses. For example, an <cite>int</cite> might occupy addresses 1000–1003.</p>
+<p>Modern CPUs and compilers may align data to <strong>8-byte or 4-byte boundaries</strong> for performance reasons. This is known as <strong>alignment</strong> and may cause <strong>padding</strong> bytes to be inserted between members.</p>
+</div>
+</section>
 <section id="data-types-in-c">
 <h2>Data Types in C<a class="headerlink" href="#data-types-in-c" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">int</span></code></dt><dd><p>Integers from a starting value of -2,147,483,648 to an ending value of 2,147,483,647, i.e., <strong>4 bytes</strong>.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">long`</span></code></dt><dd><p>Long values range from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807, i.e., <strong>8 bytes</strong>.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">float</span></code></dt><dd><p>Decimal values have a size of <strong>4 bytes</strong> but have precision up to 7 decimal digits.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">double</span></code></dt><dd><p>Decimal values have a size of <strong>8 bytes</strong> but have precision up to 15 decimal digits.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">char</span></code></dt><dd><p>A single character with a size of <strong>1 byte</strong>. Its value can range from -128 to 127 or 0 to 255.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">short</span></code></dt><dd><p>It can have values between -32,768 and 32,767, i.e., <strong>2 bytes</strong>.</p>
-</dd>
-</dl>
-</li>
-</ol>
-<p>Adding <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> in front of any data type can increase its range. Unsigned specifies that the variable is positive only, hence all the negative number space can be utilized for more digits.
-For example:
-<code class="docutils literal notranslate"><span class="pre">short</span></code> has a range from -32,768 to 32,767, <strong>but</strong>
-<code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">short</span></code> has a range from 0 to 65,535.</p>
-<p><code class="docutils literal notranslate"><span class="pre">unsigned</span></code> can be added to any data type to increase its size.</p>
+<p>C provides a variety of data types, both primitive and user-defined. Here’s a quick overview of the basic ones:</p>
+<section id="basic-data-types">
+<h3>Basic Data Types<a class="headerlink" href="#basic-data-types" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>char</strong>: Stores a single character. Occupies 1 byte. Can be signed or unsigned.</p></li>
+<li><p><strong>short</strong>: Short integer, usually 2 bytes. Can be signed or unsigned.</p></li>
+<li><p><strong>int</strong>: Standard integer, usually 4 bytes. Can be signed or unsigned.</p></li>
+<li><p><strong>long</strong>: Long integer, usually 4 or 8 bytes depending on the system. Can be signed or unsigned.</p></li>
+<li><p><strong>float</strong>: Single precision floating-point number. 4 bytes.</p></li>
+<li><p><strong>double</strong>: Double precision floating-point number. 8 bytes.</p></li>
+<li><p><strong>long double</strong>: Extended precision floating-point number. Size varies by system.</p></li>
+</ul>
 </section>
-<section id="constants-const">
-<h2>Constants (const)<a class="headerlink" href="#constants-const" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">const</span></code> are data types that cannot be changed, unlike variables. While variables can be redefined to change their values, constants cannot.</p>
-<p>Example:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span>
+<section id="modifiers">
+<h3>Modifiers<a class="headerlink" href="#modifiers" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><cite>signed</cite> and <cite>unsigned</cite> can be used with <cite>char</cite>, <cite>short</cite>, <cite>int</cite>, and <cite>long</cite> to define whether they can store negative values or not.</p></li>
+<li><p><cite>short</cite> and <cite>long</cite> are used to modify the size of integers.</p></li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
+<span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.1415926535</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Now the variable <code class="docutils literal notranslate"><span class="pre">age</span></code> cannot be changed into another value.</p>
 </section>
-<section id="code-explanation">
-<h2>Code Explanation<a class="headerlink" href="#code-explanation" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">age</span> <span class="pre">=</span> <span class="pre">21;</span></code></dt><dd><p>This line declares an integer variable named <code class="docutils literal notranslate"><span class="pre">age</span></code> and initializes it with the value <code class="docutils literal notranslate"><span class="pre">21</span></code>.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">height</span> <span class="pre">=</span> <span class="pre">5.9;</span></code></dt><dd><p>This line declares a floating-point variable named <code class="docutils literal notranslate"><span class="pre">height</span></code> and initializes it with the value <code class="docutils literal notranslate"><span class="pre">5.9</span></code>.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">grade</span> <span class="pre">=</span> <span class="pre">'A';</span></code></dt><dd><p>This line declares a character variable named <code class="docutils literal notranslate"><span class="pre">grade</span></code> and initializes it with the value <code class="docutils literal notranslate"><span class="pre">'A'</span></code>.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">printf(&quot;Age:</span> <span class="pre">%d\\n&quot;,</span> <span class="pre">age);</span></code></dt><dd><p>This line uses the <code class="docutils literal notranslate"><span class="pre">printf</span></code> function to print the value of the <code class="docutils literal notranslate"><span class="pre">age</span></code> variable to the console. The <code class="docutils literal notranslate"><span class="pre">%d</span></code> format specifier is used for printing an integer.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">printf(&quot;Height:</span> <span class="pre">%.1f\\n&quot;,</span> <span class="pre">height);</span></code></dt><dd><p>This line uses the <code class="docutils literal notranslate"><span class="pre">printf</span></code> function to print the value of the <code class="docutils literal notranslate"><span class="pre">height</span></code> variable to the console. The <code class="docutils literal notranslate"><span class="pre">%.1f</span></code> format specifier is used for printing a floating-point number with one digit after the decimal point.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">printf(&quot;Grade:</span> <span class="pre">%c\\n&quot;,</span> <span class="pre">grade);</span></code></dt><dd><p>This line uses the <code class="docutils literal notranslate"><span class="pre">printf</span></code> function to print the value of the <code class="docutils literal notranslate"><span class="pre">grade</span></code> variable to the console. The <code class="docutils literal notranslate"><span class="pre">%c</span></code> format specifier is used for printing a character.</p>
-</dd>
-</dl>
-</li>
-</ol>
+</section>
+<section id="pointers-and-dereferencing">
+<h2>Pointers and Dereferencing<a class="headerlink" href="#pointers-and-dereferencing" title="Link to this heading"></a></h2>
+<section id="what-is-a-pointer">
+<h3>What is a Pointer?<a class="headerlink" href="#what-is-a-pointer" title="Link to this heading"></a></h3>
+<p>A pointer is a variable that stores the memory address of another variable.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">;</span><span class="w">  </span><span class="c1">// ptr stores address of x</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Value of x = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span><span class="w">  </span><span class="c1">// Dereferencing the pointer</span>
+</pre></div>
+</div>
+<p>Dereferencing means accessing the value at the memory address held by the pointer.</p>
+</section>
+<section id="pointer-to-pointer">
+<h3>Pointer to Pointer<a class="headerlink" href="#pointer-to-pointer" title="Link to this heading"></a></h3>
+<p>A pointer to a pointer stores the address of another pointer.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">**</span><span class="n">pptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ptr</span><span class="p">;</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Value of x = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">pptr</span><span class="p">);</span><span class="w"> </span><span class="c1">// Two dereferences to reach value of x</span>
+</pre></div>
+</div>
+<p>Useful for:</p>
+<ul class="simple">
+<li><p>Passing pointers to functions</p></li>
+<li><p>Managing dynamic data structures like linked lists</p></li>
+<li><p>Working with arrays and matrix structures</p></li>
+</ul>
+</section>
+</section>
+<section id="strings">
+<h2>Strings<a class="headerlink" href="#strings" title="Link to this heading"></a></h2>
+<p>C does not have a built-in string data type like some higher-level languages. Instead, strings in C are represented using arrays of characters.</p>
+<section id="string-literals">
+<h3>String Literals<a class="headerlink" href="#string-literals" title="Link to this heading"></a></h3>
+<p>A string literal like “Hello” is stored as an array of characters terminated by a null character <code class="docutils literal notranslate"><span class="pre">\0</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">greeting</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// Equivalent to {&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;, &#39;\0&#39;}</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greeting</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can also use a pointer to refer to a string literal:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">greet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">greet</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Always declare string literal pointers as <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span></code> to avoid accidentally modifying read-only memory.</p>
+<p>String literals like “Hello” are stored in a <strong>read-only section</strong> of memory, typically in the <strong>.rodata</strong> (read-only data) segment of your program. When you declare <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*greet</span> <span class="pre">=</span> <span class="pre">&quot;Hello&quot;;</span></code>, the pointer <code class="docutils literal notranslate"><span class="pre">greet</span></code> points to this read-only memory.</p>
+<ul class="simple">
+<li><p>Attempting to modify the string content, such as <code class="docutils literal notranslate"><span class="pre">greet[0]</span> <span class="pre">=</span> <span class="pre">'h';</span></code>, results in <strong>undefined behavior</strong>. On many systems, this causes a segmentation fault.</p></li>
+<li><p>In contrast, declaring <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">greet[]</span> <span class="pre">=</span> <span class="pre">&quot;Hello&quot;;</span></code> creates a <strong>writable array</strong> on the stack, which is safe to modify.</p></li>
+</ul>
+<p>Example of undefined behavior:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">greet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">greet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;h&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// ❌ Undefined behavior</span>
+</pre></div>
+</div>
+<p>Safe alternative:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">greet</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">greet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;h&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// ✅ Safe</span>
+</pre></div>
+</div>
+<p>Compilers often apply <strong>string pooling</strong>, storing identical string literals in one place to save space. However, modifying literals remains unsafe regardless of pooling.</p>
+<p>Even when declared as <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*greet</span> <span class="pre">=</span> <span class="pre">&quot;Hello&quot;;</span></code>, only the data being pointed to is read-only. The pointer variable <code class="docutils literal notranslate"><span class="pre">greet</span></code> itself is <strong>not constant</strong>—it can still be made to point to a different string literal:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">greet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">greet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// ✅ Valid. Pointer is not constant, only the data is.</span>
+</pre></div>
+</div>
+<p>When you write <code class="docutils literal notranslate"><span class="pre">greet</span> <span class="pre">=</span> <span class="pre">&quot;World&quot;;</span></code>, the literal “World” is also stored in read-only memory (typically <cite>.rodata</cite>). The pointer <code class="docutils literal notranslate"><span class="pre">greet</span></code> is simply updated to point to the new location. This does <strong>not</strong> change the previous literal “Hello” or its memory; that memory remains untouched and read-only.</p>
+<p>If you want to make the pointer itself constant as well, use <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">const</span> <span class="pre">greet</span> <span class="pre">=</span> <span class="pre">&quot;Hello&quot;;</span></code>. This makes both the pointer and the data read-only.</p>
+</div>
+</section>
 </section>
 </section>
 

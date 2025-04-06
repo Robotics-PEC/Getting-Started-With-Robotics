@@ -107,28 +107,41 @@
 <li class="toctree-l3"><a class="reference internal" href="../programmingc.html#executing-the-compiled-program">2. Executing the Compiled Program</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="reference internal" href="../programmingc.html#examples">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../programmingc.html#c-programming-concepts">C Programming Concepts</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="helloworld.html">Hello, World!</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="helloworld.html#code-explanation">Code Explanation</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="variables.html">Variables and Data Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="variables.html#memory-in-c">Memory in C</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variables.html#data-types-in-c">Data Types in C</a></li>
-<li class="toctree-l4"><a class="reference internal" href="variables.html#constants-const">Constants (const)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="variables.html#code-explanation">Code Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variables.html#pointers-and-dereferencing">Pointers and Dereferencing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="variables.html#strings">Strings</a></li>
 </ul>
 </li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Functions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#what-is-a-function">What is a function?</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#function-prototypes">Function Prototypes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#passing-pointers-to-functions">Passing Pointers to Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#returning-pointers-from-functions">Returning Pointers from Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scope-of-variables-and-pointers">Scope of Variables and Pointers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pointer-to-a-function">Pointer to a Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#passing-arrays-to-functions">Passing Arrays to Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="controlstructure/index.html">Control Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controlstructure/index.html">Control Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#conditional-statements">Conditional Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#loops">Loops</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#loop-control-break-and-continue">Loop Control: break and continue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlstructure/index.html#goto-statement">goto Statement</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="datastructure/index.html">Data Structures</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#what-are-arrays">What are Arrays</a></li>
-<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#example-code">Example Code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#memory-in-c">Memory in C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#arrays">Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#structures-struct">Structures (<cite>struct</cite>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datastructure/index.html#unions-union">Unions (<cite>union</cite>)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="robotsimulation.html">Robot Simulation</a><ul>
@@ -205,7 +218,7 @@
 <section id="function-prototypes">
 <h2>Function Prototypes<a class="headerlink" href="#function-prototypes" title="Link to this heading"></a></h2>
 <p>For writing code more beautifully, we may utilize function prototypes.</p>
-<p>In function prototypes, the function is declared before the <cite>int main</cite> while the function is written below <cite>int main</cite>.</p>
+<p>In function prototypes, the function is declared before the <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">main</span></code> while the function is written below <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">main</span></code>.</p>
 <p>This makes the code more readable.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
@@ -232,6 +245,121 @@
 <li><p><strong>Main Function:</strong> The <cite>main</cite> function calls the <cite>add</cite> function with arguments <cite>5</cite> and <cite>10</cite>, stores the result in the <cite>sum</cite> variable, and then prints the result.</p></li>
 <li><p><strong>Function Definition:</strong> The <cite>add</cite> function is defined after the <cite>main</cite> function. It takes two integers <cite>a</cite> and <cite>b</cite>, adds them together, and returns the result.</p></li>
 </ol>
+</section>
+<section id="passing-pointers-to-functions">
+<h2>Passing Pointers to Functions<a class="headerlink" href="#passing-pointers-to-functions" title="Link to this heading"></a></h2>
+<p>You can pass a pointer to a function when you want the function to modify the original variable or when passing large data structures like arrays efficiently.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">update</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">  </span><span class="c1">// Outputs 20</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt><strong>Purpose:</strong></dt><dd><ul class="simple">
+<li><p>To allow the function to modify the original variable.</p></li>
+<li><p>To save memory by passing the address instead of copying large structures.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="returning-pointers-from-functions">
+<h2>Returning Pointers from Functions<a class="headerlink" href="#returning-pointers-from-functions" title="Link to this heading"></a></h2>
+<p>You can return a pointer from a function, but you must be careful with the lifetime of the pointed data.</p>
+<p>Valid example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">getValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getValue</span><span class="p">();</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span><span class="w">  </span><span class="c1">// Outputs 42</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Never return a pointer to a <strong>local variable</strong> declared inside a function. Local variables are destroyed when the function ends, and the returned pointer becomes invalid.</p>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">invalidPointer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">;</span><span class="w">  </span><span class="c1">// ❌ Invalid</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="scope-of-variables-and-pointers">
+<h2>Scope of Variables and Pointers<a class="headerlink" href="#scope-of-variables-and-pointers" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Local Variables:</strong> Exist only within the function they are defined. They are stored on the stack.</p></li>
+<li><p><strong>Global Variables:</strong> Declared outside all functions and accessible by any function.</p></li>
+<li><p><strong>Static Variables:</strong> Declared with the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword, they retain their value between function calls.</p></li>
+</ul>
+<p>Pointers follow the same scope rules as variables. When returning or passing pointers, ensure the memory they point to is still valid and accessible.</p>
+</section>
+<section id="pointer-to-a-function">
+<h2>Pointer to a Function<a class="headerlink" href="#pointer-to-a-function" title="Link to this heading"></a></h2>
+<p>A function pointer stores the address of a function and can be used to call the function indirectly.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">funcPtr</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">funcPtr</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w">  </span><span class="c1">// Calls add(5, 10)</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Function pointers are useful in:</dt><dd><ul class="simple">
+<li><p>Callback mechanisms</p></li>
+<li><p>Implementing tables of functions</p></li>
+<li><p>Event-driven programming</p></li>
+<li><p>Dynamic function calls (e.g., in drivers or plugin systems)</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="passing-arrays-to-functions">
+<h2>Passing Arrays to Functions<a class="headerlink" href="#passing-arrays-to-functions" title="Link to this heading"></a></h2>
+<p>Arrays are passed to functions by passing a pointer to their first element. You can also pass the array size for use in loops.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Element %d: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numbers</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">printArray</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt><strong>Key Points:</strong></dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">arr[]</span></code> in the function parameter is equivalent to <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*arr</span></code>.</p></li>
+<li><p>Always pass the array size separately since the function does not know its length by default.</p></li>
+<li><p>Inside the function, loop over the array using the given size.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This technique allows functions to work with arrays of any length.</p>
 </section>
 </section>
 
