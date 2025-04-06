@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Compiling and Executing C Code" href="programmingc.html" /> 
+    <link rel="prev" title="Robot Simulation" href="example/robotsimulation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,6 +56,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#git-commands-summary">Git commands summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#github">Github</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a><ul>
@@ -82,7 +83,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">Basic Linux Commands</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux Basics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="linux.html#navigating-the-filesystem">Navigating the Filesystem 🗂️</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="linux.html#pwd-print-working-directory">1. <cite>pwd</cite> (Print Working Directory)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="linux.html#ls-list-directory-contents">2. <cite>ls</cite> (List Directory Contents)</a></li>
@@ -99,16 +100,57 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="programmingc.html">Compiling and Executing C Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programmingc.html#examples">Examples</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html">C Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programmingc.html#compiling-and-runnning-c-programs">Compiling and Runnning C Programs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="programmingc.html#compiling-the-c-program">1. Compiling the C Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="programmingc.html#executing-the-compiled-program">2. Executing the Compiled Program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="programmingc.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="example/helloworld.html">Hello, World!</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="example/helloworld.html#code-explanation">Code Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="example/variables.html">Variables and Data Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="example/variables.html#data-types-in-c">Data Types in C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/variables.html#constants-const">Constants (const)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/variables.html#code-explanation">Code Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="example/functions.html">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="example/functions.html#what-is-a-function">What is a function?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/functions.html#function-prototypes">Function Prototypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/functions.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="example/controlstructure/index.html">Control Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example/datastructure/index.html">Data Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="example/datastructure/index.html#what-are-arrays">What are Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/datastructure/index.html#example-code">Example Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/datastructure/index.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="example/robotsimulation.html">Robot Simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="example/robotsimulation.html#explanation">Explanation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="programmingc.html#practice-question">Practice Question</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="programmingc.html#d-robot-simulation">2D Robot Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="programmingc.html#d-robot-simulation">2D Robot Simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="programmingc.html#objective">Objective:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="programmingc.html#instructions">Instructions:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="programmingc.html#additional-challenge">Additional Challenge:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-write-technical-documentation">How to write technical documentation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-write-technical-documentation">How to write technical documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#markdown">Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-sphinx-to-write-documentation">Using Sphinx to write documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -139,12 +181,25 @@
              
   <section id="documentation">
 <h1>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Work in Progress!</strong></p>
+<p>This section is a work in progress, and will be updated soon (When I get bored with my current work, or you decide to complete it ✌️).</p>
+</div>
 <p>An important aspect of building robotic systems is the documentation, because of the large amount of components involved one tends to forget their configuration and functionalities. Proper documentation is required for
 easier debugging, maintenance, and scalability of the system. You should write documentation for yourself, if not for others to read, like I have made this documentation for myself and in the process it helps others to
 contribute to your project.</p>
 <section id="how-to-write-technical-documentation">
-<h2>How to write technical documentation.<a class="headerlink" href="#how-to-write-technical-documentation" title="Link to this heading"></a></h2>
-<p>You can write sentences, you can write paragraphs. Can you organise all those paragraphs into a coherent document?x</p>
+<h2>How to write technical documentation<a class="headerlink" href="#how-to-write-technical-documentation" title="Link to this heading"></a></h2>
+<p>You can write sentences, you can write paragraphs. Can you organise all those paragraphs into a coherent document?</p>
+</section>
+<section id="markdown">
+<h2>Markdown<a class="headerlink" href="#markdown" title="Link to this heading"></a></h2>
+</section>
+<section id="using-sphinx-to-write-documentation">
+<h2>Using Sphinx to write documentation<a class="headerlink" href="#using-sphinx-to-write-documentation" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://www.sphinx-doc.org">Sphinx</a> is a documentation generator, the documentation you are currently reading is generated using Sphinx, and lots of other
+projects use it too.</p>
 </section>
 </section>
 
@@ -152,7 +207,7 @@ contribute to your project.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="programmingc.html" class="btn btn-neutral float-left" title="Compiling and Executing C Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example/robotsimulation.html" class="btn btn-neutral float-left" title="Robot Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

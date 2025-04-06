@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Structures &mdash; Robotics 101  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=010c87b6" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Robot Simulation" href="../robotsimulation.html" />
+    <link rel="prev" title="Control Structures" href="../controlstructure/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Robotics 101
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../versioncontrol.html">Version Control with Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../versioncontrol.html#what-is-git">What is Git?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../versioncontrol.html#installing-git">Installing Git</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../versioncontrol.html#for-windows">For Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../versioncontrol.html#for-macos">For MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../versioncontrol.html#git-commands-summary">Git commands summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../versioncontrol.html#github">Github</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker.html">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#why-docker">Why Docker? 🐳</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#installing-docker">Installing Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../docker.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../docker.html#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../docker.html#macos">MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#building-the-docker-image">Building the Docker Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#linking-local-volume-to-docker-using-docker-compose">Linking Local Volume to Docker using Docker Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../docker.html#why-do-we-need-to-link-volumes">Why Do We Need to Link Volumes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../docker.html#what-is-docker-compose">What is Docker Compose? 🐳</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../docker.html#setting-up-docker-compose">Setting Up Docker Compose</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../docker.html#create-a-docker-compose-yml-file">1. Create a <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../docker.html#run-docker-compose">2. Run Docker Compose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../docker.html#accessing-the-container">3. Accessing the Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../docker.html#creating-a-file-inside-the-container">4. Creating a File inside the Container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux.html">Linux Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linux.html#navigating-the-filesystem">Navigating the Filesystem 🗂️</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../linux.html#pwd-print-working-directory">1. <cite>pwd</cite> (Print Working Directory)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../linux.html#ls-list-directory-contents">2. <cite>ls</cite> (List Directory Contents)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../linux.html#cd-change-directory">3. <cite>cd</cite> (Change Directory)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../linux.html#file-operations">File Operations 📁</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../linux.html#touch-create-a-file">1. <cite>touch</cite> (Create a File)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../linux.html#mkdir-create-a-directory">2. <cite>mkdir</cite> (Create a Directory)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../linux.html#cp-copy-files">3. <cite>cp</cite> (Copy Files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../linux.html#mv-move-rename-files">4. <cite>mv</cite> (Move/Rename Files)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../linux.html#rm-remove-files-directories">5. <cite>rm</cite> (Remove Files/Directories)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../programmingc.html">C Programming</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../programmingc.html#compiling-and-runnning-c-programs">Compiling and Runnning C Programs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../programmingc.html#compiling-the-c-program">1. Compiling the C Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programmingc.html#executing-the-compiled-program">2. Executing the Compiled Program</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../programmingc.html#examples">Examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../helloworld.html">Hello, World!</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../helloworld.html#code-explanation">Code Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../variables.html">Variables and Data Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../variables.html#data-types-in-c">Data Types in C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../variables.html#constants-const">Constants (const)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../variables.html#code-explanation">Code Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../functions.html">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#what-is-a-function">What is a function?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#function-prototypes">Function Prototypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../functions.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../controlstructure/index.html">Control Structures</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Data Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-are-arrays">What are Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-code">Example Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../robotsimulation.html">Robot Simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../robotsimulation.html#explanation">Explanation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../programmingc.html#practice-question">Practice Question</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../programmingc.html#d-robot-simulation">2D Robot Simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../programmingc.html#objective">Objective:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programmingc.html#instructions">Instructions:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programmingc.html#additional-challenge">Additional Challenge:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation.html">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../documentation.html#how-to-write-technical-documentation">How to write technical documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../documentation.html#markdown">Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../documentation.html#using-sphinx-to-write-documentation">Using Sphinx to write documentation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Robotics 101</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../programmingc.html">C Programming</a></li>
+      <li class="breadcrumb-item active">Data Structures</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Robotics-PEC/Getting-Started-With-Robotics/blob/main/docs/source/example/datastructure/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-structures">
+<h1>Data Structures<a class="headerlink" href="#data-structures" title="Link to this heading"></a></h1>
+<p>This repository contains a simple C program that demonstrates how to iterate over an array and print its elements.</p>
+<section id="what-are-arrays">
+<h2>What are Arrays<a class="headerlink" href="#what-are-arrays" title="Link to this heading"></a></h2>
+<p>An array is a structure that can hold a given amount of data. In this structure, every single data element has an index that can be used to address that data.</p>
+<p>Think of arrays as lists; every item has a serial number.</p>
+<p>We can access any index (serial number) in an array by just calling that array with the index we want to access.</p>
+<p>For example, if we have an array called <cite>numbers</cite>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>We can access any index by:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">index_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="c1">// This gives an output of 30</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Array indexing starts with the number 0.</p>
+<p>So for <cite>{10, 20, 30, 40, 50}</cite>, the indexes are <cite>{0, 1, 2, 3, 4}</cite>.</p>
+</div>
+</section>
+<section id="example-code">
+<h2>Example Code<a class="headerlink" href="#example-code" title="Link to this heading"></a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="explanation">
+<h2>Explanation<a class="headerlink" href="#explanation" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Array Declaration:</strong> The program defines an integer array <cite>numbers</cite> with 5 elements: <cite>10, 20, 30, 40, 50</cite>.</p></li>
+<li><p><strong>For Loop:</strong></p>
+<ul class="simple">
+<li><p>The <cite>for</cite> loop iterates over each element in the <cite>numbers</cite> array.</p></li>
+<li><p>The loop variable <cite>i</cite> runs from 0 to 4, corresponding to the indices of the array elements.</p></li>
+<li><p>During each iteration, the program prints the value of the corresponding array element.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../controlstructure/index.html" class="btn btn-neutral float-left" title="Control Structures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../robotsimulation.html" class="btn btn-neutral float-right" title="Robot Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Witty Wizard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic Linux Commands &mdash; Robotics 101  documentation</title>
+  <title>Linux Basics &mdash; Robotics 101  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Compiling and Executing C Code" href="programmingc.html" />
+    <link rel="next" title="C Programming" href="programmingc.html" />
     <link rel="prev" title="Docker" href="docker.html" /> 
 </head>
 
@@ -57,6 +57,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#git-commands-summary">Git commands summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#github">Github</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a><ul>
@@ -83,7 +84,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Linux Commands</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux Basics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#navigating-the-filesystem">Navigating the Filesystem 🗂️</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pwd-print-working-directory">1. <cite>pwd</cite> (Print Working Directory)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ls-list-directory-contents">2. <cite>ls</cite> (List Directory Contents)</a></li>
@@ -100,16 +101,57 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="programmingc.html">Compiling and Executing C Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="programmingc.html#examples">Examples</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="programmingc.html">C Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programmingc.html#compiling-and-runnning-c-programs">Compiling and Runnning C Programs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="programmingc.html#compiling-the-c-program">1. Compiling the C Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="programmingc.html#executing-the-compiled-program">2. Executing the Compiled Program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="programmingc.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="example/helloworld.html">Hello, World!</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="example/helloworld.html#code-explanation">Code Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="example/variables.html">Variables and Data Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="example/variables.html#data-types-in-c">Data Types in C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/variables.html#constants-const">Constants (const)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/variables.html#code-explanation">Code Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="example/functions.html">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="example/functions.html#what-is-a-function">What is a function?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/functions.html#function-prototypes">Function Prototypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/functions.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="example/controlstructure/index.html">Control Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example/datastructure/index.html">Data Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="example/datastructure/index.html#what-are-arrays">What are Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/datastructure/index.html#example-code">Example Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example/datastructure/index.html#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="example/robotsimulation.html">Robot Simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="example/robotsimulation.html#explanation">Explanation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="programmingc.html#practice-question">Practice Question</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="programmingc.html#d-robot-simulation">2D Robot Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="programmingc.html#d-robot-simulation">2D Robot Simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="programmingc.html#objective">Objective:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="programmingc.html#instructions">Instructions:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="programmingc.html#additional-challenge">Additional Challenge:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="documentation.html#how-to-write-technical-documentation">How to write technical documentation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#how-to-write-technical-documentation">How to write technical documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#markdown">Markdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html#using-sphinx-to-write-documentation">Using Sphinx to write documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -128,7 +170,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Basic Linux Commands</li>
+      <li class="breadcrumb-item active">Linux Basics</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/Robotics-PEC/Getting-Started-With-Robotics/blob/main/docs/source/linux.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -138,8 +180,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="basic-linux-commands">
-<h1>Basic Linux Commands<a class="headerlink" href="#basic-linux-commands" title="Link to this heading"></a></h1>
+  <section id="linux-basics">
+<h1>Linux Basics<a class="headerlink" href="#linux-basics" title="Link to this heading"></a></h1>
+<p>Now, that we have installed Linux, let’s explore how to effectively navigate thorugh the linux system, unlike windows or MacOS, Linux primarliy uses command line interface (CLI),
+their exist graphical user interface (GUI) as well, but the command line is the most powerful and efficient way to interact with the system.</p>
+<p>Here are some basic command that you will need to know to get started with Linux.</p>
 <section id="navigating-the-filesystem">
 <h2>Navigating the Filesystem 🗂️<a class="headerlink" href="#navigating-the-filesystem" title="Link to this heading"></a></h2>
 <p>Understanding how to navigate the filesystem is fundamental when working with Linux.</p>
@@ -251,7 +296,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="docker.html" class="btn btn-neutral float-left" title="Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="programmingc.html" class="btn btn-neutral float-right" title="Compiling and Executing C Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="programmingc.html" class="btn btn-neutral float-right" title="C Programming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
